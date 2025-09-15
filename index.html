@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiza PEST(R) - MESKO S.A.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #003f5c;
+            --color-secondary: #488f31;
+            --color-accent1: #de425b;
+            --color-accent2: #f8961e;
+            --color-accent3: #6930c3;
+            --color-text: #333333;
+            --color-bg: #f0f2f5;
+            --color-card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-step {
+            background-color: var(--color-bg);
+            border-left: 4px solid var(--color-secondary);
+            transition: all 0.3s ease;
+        }
+        .flow-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .arrow {
+            color: var(--color-secondary);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[var(--color-primary)]">Analiza Strategiczna PEST(R)</h1>
+            <p class="text-xl md:text-2xl text-gray-600 mt-2">MESKO S.A. w Dynamicznym Otoczeniu Bezpieczeństwa</p>
+            <p class="text-sm text-gray-500 mt-1">Data: 15 Września 2025</p>
+        </header>
+        
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="md:col-span-2 lg:col-span-3 bg-[var(--color-card-bg)] rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[var(--color-primary)] mb-4">P: Otoczenie Polityczno-Militarne</h2>
+                <p class="text-gray-700 mb-6">
+                    Bezprecedensowe wsparcie rządowe, napędzane przez niestabilną sytuację geopolityczną, stanowi główny motor napędowy dla MESKO S.A. Decyzje polityczne bezpośrednio przekładają się na historyczne kontrakty i inwestycje, umacniając pozycję spółki jako filaru bezpieczeństwa narodowego i kluczowego elementu w ramach Polskiej Grupy Zbrojeniowej.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-center mb-2">Wydatki na Obronność Polski (% PKB)</h3>
+                        <p class="text-sm text-center text-gray-600 mb-4">Polska znacząco przekracza próg 2% PKB rekomendowany przez NATO, co świadczy o priorytetowym traktowaniu kwestii obronności i zapewnia stabilny strumień zamówień.</p>
+                        <div class="chart-container h-64 md:h-72">
+                            <canvas id="defenseSpendingChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-4">
+                         <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <p class="text-3xl font-bold text-[var(--color-accent1)]">~887 mln zł</p>
+                            <p class="font-semibold text-gray-800">Inwestycji w zdolności produkcyjne amunicji 155mm.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <p class="text-3xl font-bold text-[var(--color-accent1)]">3 mld SEK</p>
+                            <p class="font-semibold text-gray-800">Wartość kontraktu na eksport systemów PIORUN do Szwecji.</p>
+                        </div>
+                         <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <p class="text-3xl font-bold text-[var(--color-accent1)]">>4% PKB</p>
+                            <p class="font-semibold text-gray-800">Obecny poziom finansowania obronności, jeden z najwyższych w NATO.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 bg-[var(--color-card-bg)] rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[var(--color-primary)] mb-4">E: Otoczenie Ekonomiczne</h2>
+                <p class="text-gray-700 mb-6">
+                    Sytuacja ekonomiczna charakteryzuje się dwoistością: z jednej strony ogromny napływ funduszy krajowych i unijnych stwarza wyjątkowe możliwości rozwoju, z drugiej - wyzwania takie jak inflacja, presja na łańcuchy dostaw i wciąż wysoka zależność od importu kluczowych technologii wymagają strategicznego zarządzania i inwestycji w suwerenność produkcyjną.
+                </p>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-center mb-2">Struktura Finansowania Rozwoju</h3>
+                        <p class="text-sm text-center text-gray-600 mb-4">Rozwój polskiego przemysłu obronnego jest wspierany zarówno przez budżet krajowy, jak i dedykowane programy Unii Europejskiej, takie jak program SAFE.</p>
+                        <div class="chart-container h-64 md:h-72">
+                            <canvas id="fundingSourcesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-center mb-2">Pozycja PGZ na Rynku Europejskim</h3>
+                         <p class="text-sm text-center text-gray-600 mb-4">Mimo dynamicznego wzrostu, udział PGZ w przychodach 100 największych firm zbrojeniowych NATO w Europie wskazuje na potrzebę dalszej ekspansji i innowacji.</p>
+                        <div class="chart-container h-64 md:h-72">
+                            <canvas id="marketShareChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[var(--color-card-bg)] rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[var(--color-primary)] mb-4">R: Otoczenie Regulacyjne</h2>
+                <p class="text-gray-700 mb-6">
+                    Działalność MESKO S.A. jest ściśle regulowana przez szereg przepisów krajowych i międzynarodowych. Zapewnienie zgodności (compliance) jest kluczowe dla utrzymania licencji, wiarygodności na rynkach międzynarodowych oraz efektywnego funkcjonowania w ramach Grupy PGZ.
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-3 bg-gray-50 rounded-md border-l-4 border-[var(--color-accent2)]">
+                        <h4 class="font-semibold">Prawo Zamówień Publicznych</h4>
+                        <p class="text-sm text-gray-600">Kluczowe dla pozyskiwania kontraktów rządowych.</p>
+                    </li>
+                    <li class="p-3 bg-gray-50 rounded-md border-l-4 border-[var(--color-accent2)]">
+                        <h4 class="font-semibold">Regulacje Środowiskowe</h4>
+                        <p class="text-sm text-gray-600">Normy dotyczące produkcji i utylizacji materiałów niebezpiecznych.</p>
+                    </li>
+                    <li class="p-3 bg-gray-50 rounded-md border-l-4 border-[var(--color-accent2)]">
+                        <h4 class="font-semibold">Standardy NATO (AQAP)</h4>
+                        <p class="text-sm text-gray-600">Wymóg dla eksportu i interoperacyjności sojuszniczej.</p>
+                    </li>
+                    <li class="p-3 bg-gray-50 rounded-md border-l-4 border-[var(--color-accent2)]">
+                        <h4 class="font-semibold">Prawo Pracy i BHP</h4>
+                        <p class="text-sm text-gray-600">Wysokie standardy bezpieczeństwa w przemyśle zbrojeniowym.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-2 bg-[var(--color-card-bg)] rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[var(--color-primary)] mb-4">S: Otoczenie Społeczno-Kulturowe</h2>
+                <p class="text-gray-700 mb-6">
+                    Wysokie poparcie społeczne dla wzmacniania obronności tworzy sprzyjający klimat dla działalności firmy. Największym wyzwaniem staje się jednak rynek pracy – pozyskanie i utrzymanie wykwalifikowanej kadry inżynierskiej i technicznej w obliczu starzejącego się społeczeństwa i silnej konkurencji ze strony innych sektorów high-tech.
+                </p>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-center mb-2">Poparcie dla Zwiększenia Wydatków na Obronność</h3>
+                        <p class="text-sm text-center text-gray-600 mb-4">Zdecydowana większość Polaków akceptuje priorytetyzację budżetu obronnego, co legitymizuje strategiczne inwestycje rządu w tym sektorze.</p>
+                        <div class="chart-container h-64 md:h-72">
+                            <canvas id="publicSupportChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-center mb-2">Kluczowe Wyzwania Kadrowe</h3>
+                        <p class="text-sm text-center text-gray-600 mb-4">Sektor zbrojeniowy intensywnie poszukuje specjalistów w strategicznych obszarach, konkurując o talenty z rynkiem cywilnym.</p>
+                        <ol class="list-decimal list-inside mt-4 space-y-2 text-gray-700 font-medium">
+                            <li>Inżynierowie (elektronika, robotyka)</li>
+                            <li>Operatorzy maszyn CNC i spawacze</li>
+                            <li>Eksperci IT i cyberbezpieczeństwa</li>
+                            <li>Menedżerowie projektów R&D</li>
+                            <li>Specjaliści ds. logistyki i dostaw</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[var(--color-card-bg)] rounded-lg shadow-lg p-6">
+                 <h2 class="text-2xl font-bold text-[var(--color-primary)] mb-4">Wnioski Strategiczne</h2>
+                <p class="text-gray-700 mb-6">
+                    MESKO S.A. operuje w środowisku pełnym szans, ale i wyzwań. Kluczowe dla przyszłego sukcesu będzie maksymalne wykorzystanie sprzyjającego otoczenia politycznego i ekonomicznego do budowy trwałej przewagi technologicznej i kapitału ludzkiego.
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-3 bg-gray-50 rounded-md border-l-4 border-[var(--color-secondary)]">
+                        <h4 class="font-semibold">Priorytet 1: Inwestycje w Kapitał Ludzki</h4>
+                        <p class="text-sm text-gray-600">Agresywne programy rekrutacyjne, rozwojowe i retencyjne.</p>
+                    </li>
+                    <li class="p-3 bg-gray-50 rounded-md border-l-4 border-[var(--color-secondary)]">
+                        <h4 class="font-semibold">Priorytet 2: Budowa Suwerenności Technologicznej</h4>
+                        <p class="text-sm text-gray-600">Intensyfikacja B+R i uniezależnianie łańcucha dostaw.</p>
+                    </li>
+                    <li class="p-3 bg-gray-50 rounded-md border-l-4 border-[var(--color-secondary)]">
+                        <h4 class="font-semibold">Priorytet 3: Efektywność Operacyjna</h4>
+                        <p class="text-sm text-gray-600">Cyfryzacja i automatyzacja procesów produkcyjnych.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-2 lg:col-span-3 bg-[var(--color-card-bg)] rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[var(--color-primary)] mb-4">T: Otoczenie Technologiczne</h2>
+                <p class="text-gray-700 mb-6">
+                    Dynamiczny rozwój technologii militarnych wymusza ciągłe inwestycje w badania, rozwój i modernizację. Strategicznym celem jest przejście od licencji i importu komponentów do pełnej krajowej zdolności produkcyjnej kluczowych technologii, takich jak prochy wielobazowe, co zapewni Polsce suwerenność w zakresie amunicji i systemów rakietowych.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-center mb-2">Droga do Suwerenności Technologicznej</h3>
+                        <p class="text-sm text-center text-gray-600 mb-6">Proces uniezależniania produkcji od dostawców zewnętrznych jest kluczowym elementem strategii bezpieczeństwa państwa.</p>
+                        <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 w-full">
+                            <div class="flow-step p-3 rounded-lg text-center w-full md:w-1/3">
+                                <h4 class="font-bold">Faza 1</h4>
+                                <p class="text-sm">Import i produkcja licencyjna</p>
+                            </div>
+                            <div class="arrow text-2xl font-bold transform rotate-90 md:rotate-0">→</div>
+                            <div class="flow-step p-3 rounded-lg text-center w-full md:w-1/3">
+                                <h4 class="font-bold">Faza 2</h4>
+                                <p class="text-sm">Krajowa produkcja komponentów</p>
+                            </div>
+                            <div class="arrow text-2xl font-bold transform rotate-90 md:rotate-0">→</div>
+                             <div class="flow-step p-3 rounded-lg text-center w-full md:w-1/3">
+                                <h4 class="font-bold">Cel Strategiczny</h4>
+                                <p class="text-sm">Pełna suwerenność (np. prochy wielobazowe)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-center mb-2">Wydatki na B+R w Sektorze Obronnym</h3>
+                        <p class="text-sm text-center text-gray-600 mb-4">Zwiększenie nakładów na badania i rozwój jest niezbędne do dogonienia liderów technologicznych i budowy własnych, innowacyjnych rozwiązań.</p>
+                        <div class="chart-container h-64 md:h-72">
+                            <canvas id="rdSpendingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const CHART_COLORS = {
+                primary: '#003f5c',
+                secondary: '#488f31',
+                accent1: '#de425b',
+                accent2: '#f8961e',
+                accent3: '#6930c3',
+                grey: '#a0aec0'
+            };
+
+            const wrapLabel = (str, maxLen = 16) => {
+                if (str.length <= maxLen) {
+                    return str;
+                }
+                const words = str.split(' ');
+                let lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > maxLen) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            const defaultOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                           font: {
+                                size: 11
+                            }
+                        }
+                    },
+                    y: {
+                       ticks: {
+                           font: {
+                                size: 11
+                            }
+                        }
+                    }
+                }
+            };
+
+            const defenseSpendingCtx = document.getElementById('defenseSpendingChart').getContext('2d');
+            new Chart(defenseSpendingCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Rekomendacja NATO', 'Polska 2025'],
+                    datasets: [{
+                        label: '% PKB na obronność',
+                        data: [2.0, 4.2],
+                        backgroundColor: [CHART_COLORS.grey, CHART_COLORS.secondary],
+                        borderColor: [CHART_COLORS.grey, CHART_COLORS.secondary],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...defaultOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const fundingSourcesCtx = document.getElementById('fundingSourcesChart').getContext('2d');
+            new Chart(fundingSourcesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Budżet Krajowy', 'Fundusze UE (SAFE)'],
+                    datasets: [{
+                        label: 'Źródła finansowania',
+                        data: [75, 25],
+                        backgroundColor: [CHART_COLORS.primary, CHART_COLORS.accent2],
+                        hoverOffset: 4
+                    }]
+                },
+                options: defaultOptions
+            });
+
+            const marketShareCtx = document.getElementById('marketShareChart').getContext('2d');
+            new Chart(marketShareCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Przychody 100 największych firm NATO w UE', 'Przychody PGZ'],
+                    datasets: [{
+                        label: 'Udział w przychodach (%)',
+                        data: [100, 1.5],
+                        backgroundColor: [CHART_COLORS.grey, CHART_COLORS.accent1],
+                         borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...defaultOptions,
+                    indexAxis: 'y'
+                }
+            });
+
+            const publicSupportCtx = document.getElementById('publicSupportChart').getContext('2d');
+            new Chart(publicSupportCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Popiera', 'Przeciw / Brak zdania'],
+                    datasets: [{
+                        data: [57.2, 42.8],
+                        backgroundColor: [CHART_COLORS.secondary, CHART_COLORS.grey],
+                        hoverOffset: 4
+                    }]
+                },
+                options: defaultOptions
+            });
+            
+            const rdSpendingCtx = document.getElementById('rdSpendingChart').getContext('2d');
+            new Chart(rdSpendingCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Polska', 'Francja', 'USA (cel)'],
+                    datasets: [{
+                        label: 'Wydatki na B+R jako % budżetu obronnego',
+                        data: [2.5, 5, 10],
+                        backgroundColor: [CHART_COLORS.primary, CHART_COLORS.accent3, CHART_COLORS.accent2],
+                         borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...defaultOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
